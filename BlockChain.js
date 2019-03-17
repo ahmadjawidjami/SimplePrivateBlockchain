@@ -120,8 +120,8 @@ class Blockchain {
                         .then((results) => {
                             let previousBlock = results[0];
                             previousBlock.hash = '';
-                            let validBlockHash = SHA256(JSON.stringify(previousBlock)).toString();
-                            if (validBlockHash !== results[1].previousHash) {
+                            let previousBlockHash = SHA256(JSON.stringify(previousBlock)).toString();
+                            if (previousBlockHash !== results[1].previousHash) {
                                 errorLog.push('Integrity check error in block ' + i + ' - previous block hash has been modified'
                                 );
                             }
